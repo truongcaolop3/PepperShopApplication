@@ -1,0 +1,61 @@
+﻿@model IEnumerable<PepperShopApplication.Models.CartItem>
+@{
+    ViewData["Title"] = "Giỏ Hàng";
+    Layout = "_layout_second";
+}
+
+<div class="content_cart">
+    <div class="cart">
+        <div class="header_cart">
+            <div class="bark_header_cart">
+                <a href="#">Peper Shop | Tình trạng đơn hàng</a>
+            </div>
+
+        </div>
+        <table class="table table-light table-striped  table-hover">
+            <thead>
+                <tr>
+                    <th class="text-center" scope="col" style="width: 50%;">Sản Phẩm</th>
+                    <th class="text-center" scope="col">Đơn Giá</th>
+                    <th class="text-center" scope="col">Số Lượng</th>
+                    <th class="text-center" scope="col">Số Tiền</th>
+                    <th class="text-center" scope="col">Trạng thái</th>
+                </tr>
+            </thead>
+            <tbody>
+                @*@foreach (var item in Model)
+                {*@
+                    <tr class="row_cart">
+                        <th scope="row">
+                            <div class="product_cart">
+                                <img src="@*@item.ImageCart*@" alt="">
+                                <h6>@*@item.NameCart*@</h6>
+                                <p>@*@item.Uni*@t</p>
+                            </div>
+                        </th>
+                        <td class="align-middle text-center">@*@item.PriceCart*@</td>
+                        @* <div class="buttons_added">
+                            <input class="minus is-form" type="button" value="-">
+                            <input aria-label="quantity" class="input-qty" type="number" value="1">
+                            <input class="plus is-form" type="button" value="+">
+                            </div>*@
+                        @*<input type="text" class="form-control text-center"
+                            value="@item.Quantity" placeholder=""
+                            aria-lable ="Example text with button addon"
+                            aria-aria-describedby="button addon1"/>*@
+
+
+                        
+
+                        <td  class="align-middle text-center">@*@item.Quantity*@</td>
+                        <td class="align-middle text-center">@*@item.AllPrice*@</td>
+                        <td class="align-middle text-center">
+                           hoàn thành
+                        </td>
+                    </tr>
+                @*}*@
+            </tbody>
+        </table>
+    </div>
+</div>
+

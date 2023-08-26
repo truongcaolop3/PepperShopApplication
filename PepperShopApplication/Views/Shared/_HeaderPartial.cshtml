@@ -1,0 +1,47 @@
+﻿@*
+
+*@
+@*@model PepperShopApplication.Models.PaginationSearchInput*@
+@{
+}
+
+<header>
+    <nav class="navbar navbar-expand-lg header">
+        <div class="container">
+            <a class="navbar-brand text-uppercase text-light fw-bold logo text-break " href="~/home">Peper Shop</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse text-light" id="navbarSupportedContent">
+                <form class="form_find navbar-nav m-auto mb-2 mb-lg-0">
+                    @*<input type="hidden" name="pageSize" value="@Model.PageSize"/>*@
+                    <div class="find_heading">
+                        <input class="form-control me-2" type="text" id="find" 
+                        name="search"
+                               placeholder="Tìm kiếm món ăn, đồ uống...">
+                        <div class="find_icond">
+                            <i class='bx bx-search search_icon'></i>
+                        </div>
+                    </div>
+                </form>
+                <div class="d-flex" role="search">
+                    <div class="login_user">
+                        @*<i class='bx bxs-user user_heading'></i>
+                            <p>Đăng nhập/Đăng ký</p>*@
+                            <partial name="_LoginPartial" />
+                    </div>
+                    <div class="cart_user">
+                        <a href="~/Cart" style="color: white; text-decoration-line: none; font-size: 18px;">
+                        <i class='bx bx-cart-alt cart_icon'></i> <span>Giỏ Hàng</span> </a>
+                        @*<i class='bx bx-cart-alt cart_icon'></i>
+                        <p>Giỏ Hàng</p>*@
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+    </nav>
+</header>
