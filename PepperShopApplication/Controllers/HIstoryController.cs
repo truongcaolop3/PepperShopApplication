@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using PepperShopApplication.Helpers;
 using PepperShopApplication.Models;
 using PepperShopApplicationApplication.Datalayer;
@@ -10,38 +9,27 @@ using System.Threading.Tasks;
 
 namespace PepperShopApplication.Controllers
 {
-    public class HIstoryController : Controller
+    public class HistoryController : Controller
     {
         private readonly ApplicationDBContext _context;
 
-        public HIstoryController(ApplicationDBContext context)
+        public HistoryController(ApplicationDBContext context)
         {
             _context = context;
         }
-        public List<Histories> Histories
-        {
 
-            get
-            {
-                var data = HttpContext.Session.Get<List<Histories>>("History");
-                if (data == null)
-                {
-                    data = new List<Histories>();
-                }
-                return data;
-            }
-        }
         public IActionResult Index()
         {
-            return View(Histories);
-        }
-        public async Task<IActionResult> Status( string id)
-        {
-            
+            List<Histories> historyItems = new List<Histories>();
 
-            // if (myCart == null) 
-            HttpContext.Session.Set("Histories", Histories);
-            return RedirectToAction("Index");
+            var historyData = HttpContext.Session.Get<List<Histories>>("History");
+            if (historyData != null)
+            {
+                historyItems = historyData;
+            }
+
+            return View(historyItems);
         }
     }
+
 }

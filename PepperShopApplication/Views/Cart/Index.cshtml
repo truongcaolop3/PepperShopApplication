@@ -8,43 +8,25 @@
     <div class="cart">
         <div class="header_cart">
             <div class="bark_header_cart">
-
                 <a href="#">Peper Shop | Giỏ Hàng</a>
-                <div>
 
-
-                    @*<h4>Tổng tiền: @item.AllPrice += @item.AllPrice</h4>*@
-
-                    <a asp-action="Status" asp-controller="History" asp-route-id=""
-                       style=" font-size: 18px; color: black; font-weight: normal; margin: 0; padding: 2px 5px;"
-                       class="btn btn-info">
-                        Mua
-                    </a>
-                </div>
             </div>
-
         </div>
-        <table class="table table-light table-striped  table-hover">
+        <table class="table table-light table-striped table-hover">
             <thead>
                 <tr>
-                    <th scope="col" style="width: 3%;"></th>
                     <th class="text-center" scope="col" style="width: 50%;">Sản Phẩm</th>
                     <th class="text-center" scope="col">Đơn Giá</th>
                     <th class="text-center" scope="col">Số Lượng</th>
                     <th class="text-center" scope="col">Số Tiền</th>
                     <th class="text-center" scope="col">Thao tác</th>
+                    <th class="text-center" scope="col">Mua</th> <!-- Thêm cột mới -->
                 </tr>
             </thead>
             <tbody>
                 @foreach (var item in Model)
                 {
                     <tr class="row_cart">
-                        <td class="align-middle text-center">
-                            <div class="input-group-text">
-                                <input class="form-check" type="checkbox" value="">
-                                @*<input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">*@
-                            </div>
-                        </td>
                         <th scope="row">
                             <div class="product_cart">
                                 <img src="@item.ImageCart" alt="">
@@ -53,37 +35,26 @@
                             </div>
                         </th>
                         <td class="align-middle text-center">@item.PriceCart</td>
-                        @* <div class="buttons_added">
-                            <input class="minus is-form" type="button" value="-">
-                            <input aria-label="quantity" class="input-qty" type="number" value="1">
-                            <input class="plus is-form" type="button" value="+">
-                            </div>*@
-                        @*<input type="text" class="form-control text-center"
-                            value="@item.Quantity" placeholder=""
-                            aria-lable ="Example text with button addon"
-                            aria-aria-describedby="button addon1"/>*@
-
-
                         <td style="position: relative;">
-                            <form asp-action="UpdateQuantity" asp-controller="Cart" asp-route-id="@item.CartID">
+                            <form method="post" asp-action="UpdateQuantity" asp-controller="Cart" asp-route-id="@item.CartID">
                                 <input style="width: 80px;position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);"
                                    type="number" value="@item.Quantity" min="1" name="soluong">
                                 <button style=" position: relative; left: 32px;" type="submit" class="text-center btn btn-secondary">
-                                    upadte
+                                    update
                                 </button>
                             </form>
                         </td>
-
-                        @*<td  class="align-middle text-center">@item.Quantity</td>*@
                         <td class="align-middle text-center">@item.AllPrice</td>
                         <td class="align-middle text-center">
                             <a asp-action="Delete" asp-controller="Cart" asp-route-id="@item.CartID"
-                           class="align-middle text-center btn btn-danger">Xóa </a>
+                           class="align-middle text-center btn btn-danger">Xóa</a>
                         </td>
                     </tr>
                 }
             </tbody>
         </table>
+        <div class="text-center">
+            <a asp-action="BuyAll" asp-controller="Cart" class="btn btn-info">Mua Tất Cả</a>
+        </div>
     </div>
 </div>
-

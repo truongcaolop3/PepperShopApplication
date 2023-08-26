@@ -177,3 +177,4 @@ G:\ASP_NET_Core\PepperShopApplication\PepperShopApplication\obj\Debug\net5.0\Raz
 G:\ASP_NET_Core\PepperShopApplication\PepperShopApplication\obj\Debug\net5.0\Razor\Views\Shared\_HeaderPartial.cshtml.g.cs
 G:\ASP_NET_Core\PepperShopApplication\PepperShopApplication\obj\Debug\net5.0\Razor\Views\Shared\_FooterPartial.cshtml.g.cs
 G:\ASP_NET_Core\PepperShopApplication\PepperShopApplication\obj\Debug\net5.0\Razor\Views\HIstory\Index.cshtml.g.cs
+G:\ASP_NET_Core\PepperShopApplication\PepperShopApplication\obj\Debug\net5.0\Razor\Views\Cart\BuyAll.cshtml.g.cs

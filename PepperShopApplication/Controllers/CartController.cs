@@ -41,6 +41,7 @@ namespace PepperShopApplication.Controllers
                 return data;
             }
         }
+        
 
         public async Task<ActionResult> AddToCart(string id, int soluong = 1)
         {
@@ -54,13 +55,6 @@ namespace PepperShopApplication.Controllers
             Console.WriteLine($"===> idStr {idStr}");
             var formatId = int.Parse(idStr);
             var item = Carts.SingleOrDefault(p => p.CartID == formatId);
-
-            //var item = Carts.SingleOrDefault(p => p.Products.SingleOrDefault(p => p.Id == id).Id == id);
-            //var products = await _context.Products.ToListAsync();
-            //var dishes = await _context.Dishes
-            //       .Include(d => d.Products) 
-            //       .ToListAsync();
-            // cần meet k tú
 
             if (item == null)
             {
@@ -105,6 +99,7 @@ namespace PepperShopApplication.Controllers
                 }
                 
                 myCart.Add(item);
+
             }
 
             else
@@ -117,7 +112,7 @@ namespace PepperShopApplication.Controllers
                 //item.Quantity += soluong;
             }
 
-            // if (myCart == null) 
+
             HttpContext.Session.Set("GioHang", myCart);
             return RedirectToAction("Index");
 
@@ -132,7 +127,7 @@ namespace PepperShopApplication.Controllers
 
             return RedirectToAction("Index");
         }
-
+       
         public IActionResult UpdateQuantity(int id , int soluong)
         {
             Console.WriteLine($"==> update id {id} and quantity {soluong}");
@@ -145,14 +140,37 @@ namespace PepperShopApplication.Controllers
 
             return RedirectToAction("Index");
         }
-        //public IActionResult Buy(int id)
-        //{
-        //    Console.WriteLine($"===> Buy id {id}");
-        //    var myCarts = Carts;
-        //    myCarts = myCarts.Where(cart => cart.CartID != id).ToList();
-        //    HttpContext.Session.Set("GioHang", myCarts);
+        
+        public IActionResult BuyAll()
+        {
+            var myCarts = Carts.ToList();
 
-        //    return RedirectToAction("Index");
-        //}
+            List<Histories> historyItems = new List<Histories>();
+            var historyData = HttpContext.Session.Get<List<Histories>>("History");
+            if (historyData != null)
+            {
+                historyItems = historyData;
+            }
+
+            foreach (var boughtItem in myCarts)
+            {
+                historyItems.Add(new Histories
+                {
+                    HistoryId = boughtItem.CartID,
+                    NameHistory = boughtItem.NameCart,
+                    PriceHistory = boughtItem.PriceCart,
+                    Quantity = boughtItem.Quantity
+                });
+            }
+
+            HttpContext.Session.Set("History", historyItems);
+
+            myCarts.Clear();
+            HttpContext.Session.Set("GioHang", myCarts);
+
+            return RedirectToAction("Index", "History");
+        }
+
+
     }
 }
