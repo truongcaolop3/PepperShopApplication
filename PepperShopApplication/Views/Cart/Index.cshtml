@@ -9,7 +9,10 @@
         <div class="header_cart">
             <div class="bark_header_cart">
                 <a href="#">Peper Shop | Giỏ Hàng</a>
-
+                <div class="text-center">
+                    <a asp-action="BuyAll" asp-controller="Cart" 
+                   style="color: black;font-size: 16px; padding: 2px 7px;" class="btn btn-info">Mua Tất Cả</a>
+                </div>
             </div>
         </div>
         <table class="table table-light table-striped table-hover">
@@ -20,7 +23,6 @@
                     <th class="text-center" scope="col">Số Lượng</th>
                     <th class="text-center" scope="col">Số Tiền</th>
                     <th class="text-center" scope="col">Thao tác</th>
-                    <th class="text-center" scope="col">Mua</th> <!-- Thêm cột mới -->
                 </tr>
             </thead>
             <tbody>
@@ -53,8 +55,6 @@
                 }
             </tbody>
         </table>
-        <div class="text-center">
-            <a asp-action="BuyAll" asp-controller="Cart" class="btn btn-info">Mua Tất Cả</a>
-        </div>
+
     </div>
 </div>

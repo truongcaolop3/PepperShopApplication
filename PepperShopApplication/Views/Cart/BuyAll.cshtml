@@ -14,20 +14,28 @@
         <table class="table table-light table-striped  table-hover">
             <thead>
                 <tr>
-                    <th class="text-center" scope="col">Sản Phẩm</th>
+                    <th class="text-center" scope="col" style="width: 50%;">Sản Phẩm</th>
                     <th class="text-center" scope="col">Đơn Giá</th>
                     <th class="text-center" scope="col">Số Lượng</th>
                     <th class="text-center" scope="col">Số Tiền</th>
+                    <th class="text-center" scope="col">Trạng thái</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var item in Model)
                 {
                     <tr class="row_cart">
-                        <th scope="row">@item.NameHistory</th>
+                        <th scope="row">
+                            <div class="product_cart">
+                                <img src="@item.ImageHistory" alt="">
+                                <h6>@item.NameHistory</h6>
+                                <p>@item.Unit</p>
+                            </div>
+                        </th>
                         <td class="align-middle text-center">@item.PriceHistory</td>
                         <td class="align-middle text-center">@item.Quantity</td>
-                        <td class="align-middle text-center">@item.AllPrice * @item.Quantity</td>
+                        <td class="align-middle text-center">@item.TotalPrice </td>
+                        <td class="align-middle text-center">Hoàn thành</td>
                     </tr>
                 }
             </tbody>

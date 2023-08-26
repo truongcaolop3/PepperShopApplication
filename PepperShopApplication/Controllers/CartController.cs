@@ -77,7 +77,8 @@ namespace PepperShopApplication.Controllers
                         NameCart = hanghoa.Name,
                         PriceCart = totalPrice,
                         Quantity = soluong,
-                        ImageCart = hanghoa.Image
+                        ImageCart = hanghoa.Image,
+                        
                     };
                 }
 
@@ -92,7 +93,8 @@ namespace PepperShopApplication.Controllers
                         PriceCart = hanghoa.Price,
                         //PriceCart = dish.Products.Sum(d => d.Product.Price),
                         Quantity = soluong,
-                        ImageCart = hanghoa.Image
+                        ImageCart = hanghoa.Image,
+                        Unit = hanghoa.Unit
 
 
                     };
@@ -157,9 +159,14 @@ namespace PepperShopApplication.Controllers
                 historyItems.Add(new Histories
                 {
                     HistoryId = boughtItem.CartID,
+                    ImageHistory = boughtItem.ImageCart,
                     NameHistory = boughtItem.NameCart,
                     PriceHistory = boughtItem.PriceCart,
-                    Quantity = boughtItem.Quantity
+                    Quantity = boughtItem.Quantity,
+                    TotalPrice = (int)boughtItem.AllPrice,
+                    Unit = boughtItem.Unit
+                    
+                    
                 });
             }
 

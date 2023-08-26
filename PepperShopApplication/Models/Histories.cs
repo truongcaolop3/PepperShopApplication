@@ -17,7 +17,7 @@ namespace PepperShopApplication.Models
         public string Unit { get; set; }
         public int PriceHistory { get; set; }
         public int Quantity { get; set; }
-        public double AllPrice => PriceHistory * Quantity;
+        public int AllPrice => PriceHistory * Quantity;
         //public totalPrice += All
     }
 }
